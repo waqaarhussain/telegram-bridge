@@ -1,0 +1,15 @@
+[Unit]
+Description=Telegram Provider to MT5 Bridge
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/forexpert-bridge
+ExecStart=/opt/forexpert-bridge/.venv/bin/python -u /opt/forexpert-bridge/bridge.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
